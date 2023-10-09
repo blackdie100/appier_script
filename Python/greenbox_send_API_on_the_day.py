@@ -1,0 +1,32 @@
+import requests
+from datetime import datetime,timedelta
+
+
+NowTime = datetime.now() + timedelta(seconds=28800)
+NowTimestamp = datetime.timestamp(NowTime)
+
+on_the_day_StartTime = NowTime + timedelta(seconds=3600)
+on_the_day_EndTime = NowTime + timedelta(seconds=54000)
+on_the_day_StartTimestamp = datetime.timestamp(on_the_day_StartTime)
+on_the_day_EndTimestamp = datetime.timestamp(on_the_day_EndTime)
+
+
+Active = '11' ## 0 is inactive, 11 is active
+PercentString = '100%'
+
+on_the_day_url = "https://aiqua.appier.com/qganalyzedata/v2/campaigns/794098/"
+
+# on_the_day_payload = '{\n    \"active\": \"%s\",\n    \"id\": 794098,\n    \"type1\": \"inweb\",\n    \"name\": \"on_the_day\",\n    \"description\": \"Monday_Saturday_12am_14pm\",\n    \"channel\": \"push\",\n    \"type\": \"web\",\n    \"include_segments\": [\n        111172\n    ],\n    \"exclude_segments\": [],\n    \"segment\": 111172,\n    \"includesegment\": null,\n    \"excludesegment\": null,\n    \"creative\": {\n        \"type\": \"inweb\",\n        \"triggerType\": \"scrollThreshold\",\n        \"startTime\": %d,\n        \"endTime\": %d,\n        \"include_new_users\": true,\n        \"whenCond\": {\n            \"eventName\": \"page_viewed\",\n            \"operator\": \"AND\",\n            \"conditions\": [\n                {\n                    \"value\": \"/SpecialNew\",\n                    \"param\": \"url\",\n                    \"op\": \"contains\"\n                }\n            ]\n        },\n        \"scheduledType\": \"once\",\n        \"maxNumTimesToShow\": 1,\n        \"audiencePlatform\": {\n            \"android\": true,\n            \"ios\": true,\n            \"others\": true\n        },\n        \"abCreativeVariants\": [\n            {\n                \"creativeType\": \"html\",\n                \"variantName\": \"Variant 1\",\n                \"maxLeadSubmitCount\": 1,\n                \"html\": {\n                    \"htmlBody\": \"<div class=\\\"aiqua\\\">\\r\\n    <a class=\\\"aiqua__item-link\\\">\\r\\n      <img class=\\\"aiqua__item-img\\\" src=\\\"https://cdn.qgraph.io/img/hosting/6f8b1ea135c988f5f915/1S0ObleJjS7lbo2xjh-8sS8xblP8sS0xPSg8sS2rbF38sS2O1mK8sS5lbmT8sS5APFP8sS5A1SPWd95xPF5xd95JPogod95x1lkOd95xbM3c7mwB1S0ObleJjS7lbO.jpg\\\" alt=\\\"\\\" />\\r\\n    </a>\\r\\n</div>\\r\\n\\r\\n\\r\\n<style>\\r\\n.aiqua {\\r\\n    max-width: 500px;\\r\\n    overflow: hidden;\\r\\n}\\r\\n\\r\\n.aiqua .aiqua__item-img {\\r\\n  width: %s;\\r\\n}\\r\\n</style>\",\n                    \"showOverlay\": false\n                }\n            }\n        ],\n        \"isAB\": false,\n        \"scrollTriggerRule\": {\n            \"percent\": 10\n        }\n    },\n    \"event\": \"nothing\",\n    \"trigger\": \"nothing\",\n    \"stats\": {},\n    \"account\": \"2400\"\n}' % (Active, int(on_the_day_StartTimestamp), int(on_the_day_EndTimestamp), PercentString) 
+on_the_day_payload = '{\n    \"active\": \"%s\",\n    \"id\": 794098,\n    \"type1\": \"inweb\",\n    \"name\": \"on_the_day\",\n    \"description\": \"Monday_Saturday_12am_14pm_\",\n    \"channel\": \"push\",\n    \"type\": \"web\",\n    \"include_segments\": [\n        124303,\n        124304\n    ],\n    \"exclude_segments\": [],\n    \"segment\": 124303,\n    \"includesegment\": null,\n    \"excludesegment\": null,\n    \"creative\": {\n        \"type\": \"inweb\",\n        \"triggerType\": \"scrollThreshold\",\n        \"startTime\": %d,\n        \"endTime\": %d,\n        \"include_new_users\": false,\n        \"whenCond\": {\n            \"eventName\": \"page_viewed\",\n            \"operator\": \"AND\",\n            \"conditions\": [\n                {\n                    \"value\": \"https://greenbox.tw/Products/SpecialNew\",\n                    \"param\": \"url\",\n                    \"op\": \"equals\"\n                },\n                {\n                    \"value\": \"https://greenbox.tw/Products/FrozenFood?categoryName=onsale\",\n                    \"param\": \"url\",\n                    \"op\": \"equals\"\n                }\n            ]\n        },\n        \"scheduledType\": \"repeats\",\n        \"maxNumTimesToShow\": 5,\n        \"audiencePlatform\": {\n            \"android\": true,\n            \"ios\": true,\n            \"others\": true\n        },\n        \"abCreativeVariants\": [\n            {\n                \"creativeType\": \"html\",\n                \"variantName\": \"變數 1\",\n                \"maxLeadSubmitCount\": 1,\n                \"html\": {\n                    \"htmlBody\": \"<div class=\\\"aiqua\\\">\\r\\n    <a class=\\\"aiqua__item-link\\\">\\r\\n      <img class=\\\"aiqua__item-img\\\" src=\\\"https://cdn.qgraph.io/img/hosting/6f8b1ea135c988f5f915/1S0Lbm0r1m5O1SkA1Y-T5KTD3g7Bd95xPcg4d95x1IPNd95AbSKcd95-0cKHjS2-d95AbS8Md95MbI5xd95-1S32dxrxbI3HbgrxbF0x0xrxbS1J1KrxbSs2P4erVSwM1okM1Sex1m1.jpg\\\" alt=\\\"\\\" />\\r\\n    </a>\\r\\n</div>\\r\\n\\r\\n\\r\\n<style>\\r\\n.aiqua {\\r\\n    max-width: 500px;\\r\\n    overflow: hidden;\\r\\n}\\r\\n\\r\\n.aiqua .aiqua__item-img {\\r\\n  width: %s;\\r\\n}\\r\\n</style>\",\n                    \"showOverlay\": false\n                }\n            }\n        ],\n        \"isAB\": false,\n        \"scrollTriggerRule\": {\n            \"percent\": 10\n        }\n    },\n    \"priority\": 1,\n    \"event\": \"nothing\",\n    \"trigger\": \"nothing\",\n    \"stats\": {\n        \"last_refresh_start_datetime\": \"2021-06-27 18:22:05\",\n        \"total_seg_duration\": 15,\n        \"pid\": \"568\",\n        \"detailedLog\": \"http://internal.aiqua.appier.info/log/crunner-inweb/toggle/detailed-log/2021-06-25/20210625-084857-794098-2400.txt\",\n        \"total_records\": 4333,\n        \"logFilePath\": \"http://internal.aiqua.appier.info/log/crunner-inweb/toggle/log/2021-06-25/20210625-084857-794098-2400.txt\",\n        \"last_refresh_end_datetime\": \"2021-06-27 18:22:16\",\n        \"campaign_start_time\": \"2021-06-25 08:48:57\"\n    },\n    \"account\": \"2400\"\n}' % (Active, int(on_the_day_StartTimestamp), int(on_the_day_EndTimestamp), PercentString) 
+
+headers = {
+  'Authorization': 'Token ad658f4e0ab41166f3a064e157e848f38f785e84',
+  'appId': '6f8b1ea135c988f5f915',
+  'Content-Type': 'application/json',
+  'Cookie': '__cfduid=d327e10d9470901dd2a775ab4949a27051607496684'
+}
+
+on_the_day_response = requests.request("PUT", on_the_day_url, headers=headers, data = on_the_day_payload.encode('utf-8'))
+
+print(on_the_day_response.text.encode('utf8'))
+
